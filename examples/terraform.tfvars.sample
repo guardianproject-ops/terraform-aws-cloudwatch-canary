@@ -1,0 +1,3 @@
+bucket_name   = "cw-syn-results-YOUR_ACCOUNT_ID-us-east-1"
+force_destroy = true
+canary_name   = "test-canary"

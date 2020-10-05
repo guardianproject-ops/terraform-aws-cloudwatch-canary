@@ -1,0 +1,54 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name: terraform-aws-cloudwatch-canary
+
+# License of this project
+license: "AGPL3"
+
+# Canonical GitLab repo
+gitlab_repo: guardianproject-ops/terraform-aws-cloudwatch-canary
+
+# Badges to display
+badges: []
+
+# Short description of this project
+description: |-
+  Creates resources for a AWS Synthetics Canary
+
+introduction: |-
+
+  Note it is not possible
+  ([yet](https://github.com/terraform-providers/terraform-provider-aws/issues/11145))
+  to create AWS Synthetic Canaries via terraform.
+
+  For now this module just creates the adjacent required resources. You'll need
+  to create the canary in the UI and select the IAM Role and S3 bucket from this
+  module.
+
+# How to use this project
+usage: |-
+
+  ```hcl
+  module "canary" {
+    source = "git::https://gitlab.com/guardianproject-ops/terraform-aws-cloudwatch-canary.git?ref=master"
+
+    bucket_name = "my-cwsyn-bucket"
+    canary_name = "my-canary"
+    context     = module.this.context
+  }
+  ```
+
+include:
+  - "docs/terraform.md"
+
+funded_by_cdr: true
+# Contributors to this project
+contributors:
+  - name: "Abel Luck"
+    gitlab: "abelxluck"
+    gravatar: 0f605397e0ead93a68e1be26dc26481a
